@@ -17,11 +17,18 @@ Rails.application.routes.draw do
   # Define the /square_root/results URL
     get("/square_root/results", { :controller=> "application", :action => "calculate_square_root"})
 
-## Payment
+### Payment
   # Define the /payment/new URL
     get("/payment/new", { :controller=> "application", :action => "blank_payment_form"})
 
   # Define the /payment/results URL
     get("/payment/results", { :controller=> "application", :action => "calculate_payment"})
+
+#### Random
+  # Define the /random/new URL
+    get("/random/new", { :controller=> "application", :action => "blank_random_form"})
+
+  # Define the /payment/results URL
+    get("/random/results", { :controller=> "application", :action => "calculate_random"})
 
 end

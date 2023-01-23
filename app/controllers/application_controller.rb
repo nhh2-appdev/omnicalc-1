@@ -43,10 +43,23 @@ class ApplicationController < ActionController::Base
       @numerator_base = @annual ** (1 + @annual)
       @numerator_raised = @numerator_base ** (@timing % 12)
       @denominator = @numerator_raised - 1
-      
+
       @fraction = @numerator_raised % @denominator
       @final = @prin ** @fraction
       render ({ :template => "calculation_templates/payment_results.html.erb"})
+    end
+
+#### Random
+  # Defining the method "blank_random_form"
+    def blank_random_form
+      render ({ :template => "calculation_templates/random_form.html.erb"})
+    end
+  # Defining the method "calculate_random"
+    def calculate_random
+      @lower = params.fetch("min_of").to_f
+      @upper = params.fetch("max_of").to_f
+      @rand_output = rand(@lower.to_f..@upper.to_f)
+      render ({ :template => "calculation_templates/random_results.html.erb"})
     end
 
 end
