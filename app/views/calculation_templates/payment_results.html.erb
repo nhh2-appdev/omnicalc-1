@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    
+    <div>
+      <h1>Payment Results</h1>
+    </div>
+
+    <dl>
+      <dt>APR</dt>
+        <dd><%= @annual %></dd>
+
+      <dt>Number of years</dt>
+        <dd><%= @timing %></dd>
+
+      <dt>Principal</dt>
+        <dd><%= @prin %></dd>
+
+      <dt>Payment</dt>
+        <dd><%= @final %></dd>
+    </dl>
+
+
+    <a href = "/payment/new">
+      Calculate another payment
+    </a>
+
+  </body>
+</html>
