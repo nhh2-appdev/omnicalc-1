@@ -36,16 +36,13 @@ class ApplicationController < ActionController::Base
     end
   # Defining the method "calculate_payment"
     def calculate_payment
-      @annual = params.fetch("apr_of").to_f
-      @timing = params.fetch("horizon").to_f
-      @prin = params.fetch("pmts").to_f
+      @annual = params.fetch("apr_of").to_d
+      @timing = params.fetch("horizon").to_i
+      @prin = params.fetch("pmts").to_d
+      @monthly_rate = @annual / 100 /12
 
-      @numerator_base = @annual ** (1 + @annual)
-      @numerator_raised = @numerator_base ** (@timing % 12)
-      @denominator = @numerator_raised - 1
+      @final = @prin * (((@monthly_rate * (1 + @monthly_rate)**@timing)) / ((1 + @monthly_rate)**(@timing)-1))
 
-      @fraction = @numerator_raised / @denominator
-      @final = @prin ** @fraction
       render ({ :template => "calculation_templates/payment_results.html.erb"})
     end
 
