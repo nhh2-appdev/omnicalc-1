@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
       @numerator_raised = @numerator_base ** (@timing % 12)
       @denominator = @numerator_raised - 1
 
-      @fraction = @numerator_raised % @denominator
+      @fraction = @numerator_raised / @denominator
       @final = @prin ** @fraction
       render ({ :template => "calculation_templates/payment_results.html.erb"})
     end

@@ -8,16 +8,16 @@
 
     <dl>
       <dt>APR</dt>
-        <dd><%= @annual %></dd>
+        <dd><%= @annual.to_s(:percentage, { :precision => 4}) %></dd>
 
       <dt>Number of years</dt>
-        <dd><%= @timing %></dd>
+        <dd><%= @timing.to_i %></dd>
 
       <dt>Principal</dt>
-        <dd><%= @prin %></dd>
+        <dd><%= @prin.to_s(:currency) %></dd>
 
       <dt>Payment</dt>
-        <dd><%= @final %></dd>
+        <dd><%= @final.to_s(:currency) %></dd>
     </dl>
 
 
